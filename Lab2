@@ -1,0 +1,91 @@
+#Q1
+#1. Create a function with variable length of arguments
+def func1(*n):
+    for i in n:
+        print(i)
+    #call function with 3 arguments   
+func1(20, 40, 60)
+    #call function with 2 arguments
+func1(80 ,100)
+#2. Return multiple values from a function 
+def calculation(a,b):
+    total = 0
+    minus = 0
+    for num in (a,b):
+        total += num
+        minus = a - b
+    return( total, minus)
+    
+res = calculation(40,10)
+print(res)
+
+#Q2
+#1 Create a function with default argument
+def salary(m = 'Alice',n = '9000'):
+    print('Name:' , m,'Salary:', n)
+
+salary('Ben', 12000)
+salary('Jessa')
+
+#2 Create an inner function to calculate the addition in the following way
+def outer_function(a, b):
+    def inner_function():
+        return a + b
+    
+    result = inner_function() + 5
+    return result
+
+#Q3
+#1.Create a recursive function Write a program to create a recursive function to calculate the sum of numbers from 0 to 10.A recursive function is a function that calls itself, again and again.
+def recursive_sum(n):
+    if n == 0:
+        return 0
+    else:
+        return n + recursive_sum(n - 1)
+
+def addition_loop(n):
+    result = 0
+    for i in range(1, n+1):
+        result += i
+    return result
+
+print(recursive_sum(10))
+print(addition_loop(10))
+#2. Assign a different name to function and call it through the new name
+def display_student(name, age):
+    print(name, age)
+    
+show_student = display_student
+display_student("Emma", 26)
+show_student("Emma", 26)
+    
+    
+#Q4
+#1. Check Palindrome Number
+def is_palindrome(n):
+    if n < 0:
+        return False
+
+    original_n = n
+    reversed_n = 0
+
+    while n > 0:
+        reversed_n = reversed_n * 10 + n % 10
+        n = n // 10
+
+    return original_n == reversed_n
+print(is_palindrome(1331))
+print(is_palindrome(12345))
+
+#2. Find the largest item from a given list
+def find_largest(lst):
+    if not lst:
+        return None
+
+    largest = lst[0]
+    for item in lst:
+        if item > largest:
+            largest = item
+
+    return largest
+print(find_largest([4,6,8,24,12,2]))
